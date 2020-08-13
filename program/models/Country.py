@@ -6,9 +6,8 @@ from geopy import Nominatim
 
 from imutils import paths
 
-BASEPATH = pathlib.Path(__file__).parent.absolute()
-
 geolocator = Nominatim(user_agent='climate_change_simulation')
+
 
 class Country:
     def __init__(self, name):
