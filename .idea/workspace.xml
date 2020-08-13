@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET" />
+    <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET">
+      <change afterPath="$PROJECT_DIR$/program/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/mapping/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/models/Albedo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/models/Earth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/data/country/country.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Country.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/world.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,11 +62,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\Github\climate_change_simulation\program\data\country\csv" />
+      <recent name="D:\Programming\Github\climate_change_simulation\program\models" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\data\country" />
     </key>
   </component>
   <component name="RunManager" selected="Python.run">
-    <configuration name="country" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Country" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="climate_change_simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -69,7 +80,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program/data/country/country.py" />
+      <option name="SCRIPT_NAME" value="D:\Programming\Github\climate_change_simulation\program\models\Country.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -101,10 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.country" />
+        <item itemvalue="Python.Country" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -148,26 +160,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593183206622" />
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1595545907067">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595545907067" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597330353113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597330353113" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593183198526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593183198526" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1593442330679">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1597235055131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593442330679" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1593442330679">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597235055131" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1597235055131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593442330679" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1593442330678">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597235055131" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1597235055131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593442330678" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1593442330679">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597235055131" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1597235055131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593442330679" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597235055131" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1593388997977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
