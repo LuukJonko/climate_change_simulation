@@ -2,9 +2,11 @@ from math import pi
 
 
 class Earth(object):
-    def __init__(self, albedo):
+    def __init__(self, data):
         self.time = 0
-        self.albedo = albedo
+        self.data = data
+        self.albedo = self.data['albedo']
+        self.countries = self.data['countries']
         self.albedo.bind_to(self.update)
         self.Energie = 0  # In Joule
         self.radius = 6371000  # In metres
