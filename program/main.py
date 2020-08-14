@@ -1,9 +1,9 @@
 from program.models.Earth import Earth
 from program.models.Albedo import Albedo
 from program.models.Country import Country
-from program.data.main import Data
+from program.data.data import Data
 
-from program.mapping.main import Mapping
+from program.mapping.mapping import Mapping
 
 from pathlib import Path
 
@@ -15,7 +15,11 @@ data = {'albedo': Albedo(), 'countries': [Country(c, data_instance.get_data(c))
                                           for c in data_instance.get_country_names()]}
 earth = Earth(data)
 
-earth_variables = list(earth.__dict__.keys())
+variable_names = {
+    'earth': list(earth.__dict__.keys()),
+                  }
+
+mapping = Mapping(variable_names)
 
 
 
