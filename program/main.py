@@ -19,12 +19,24 @@ variable_names = {
     'earth': list(earth.__dict__.keys()),
                   }
 
-mapping = Mapping(variable_names)
+mapping = Mapping(BASEPATH, variable_names)
 
+
+def handler():
+    for i in range(1):
+        mapping.values[i] = get_values()
+    mapping.save_csv()
+
+
+def get_values():
+    values = {}
+    for model in variable_names:
+        values[model] = [eval(f'{ model }.{ variable_name }') for variable_name in variable_names[model]]
+    return values
 
 
 def main():
-    pass
+    handler()
 
 
 if __name__ == '__main__':
