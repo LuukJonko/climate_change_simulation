@@ -1,13 +1,15 @@
-from imutils import paths
+import csv
+import sys
+import os
 from json import load
 
-import csv
-import os
+from imutils import paths
 
 
 class Data:
-    def __init__(self, BASEPATH):
+    def __init__(self, BASEPATH, logging):
         self.BASEPATH = BASEPATH
+        self.logging = logging
 
     def get_data(self, name):
         data = {
@@ -26,7 +28,9 @@ class Data:
 
     def get_csv_data_with_country_name(self, name):
         data = {}
-        for file in list(paths.list_files(os.path.join(self.BASEPATH, 'data/country/csv'))):
+        for index, file in enumerate(files := list(paths.list_files(os.path.join(self.BASEPATH, 'data/country/csv')))):
+            sys.stdout.write(f"\rLoading in csv file { index + 1 } out of { len(files) }")
+            sys.stdout.flush()
             # Make a list of all the paths in the csv directory
             with open(file, 'r') as csv_file:  # Open the files
                 contents = list(csv.reader(csv_file))  # Read the contents and make a 3d list out of it

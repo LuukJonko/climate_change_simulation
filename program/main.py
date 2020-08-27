@@ -1,38 +1,46 @@
 from program.models.Earth import Earth
 from program.models.Albedo import Albedo
 from program.models.Country import Country
+from program.models.Time import Time
 from program.data.data import Data
 
 from program.mapping.mapping import Mapping
+from program.mapping.logging import Logging
 
 from pathlib import Path
 
+from sys import exit
+
 BASEPATH = Path(__file__).parent.absolute()
 
-data_instance = Data(BASEPATH)
+try:
+    logging = Logging(BASEPATH)
+except ImportError:
+    exit("Could not import correctly")
 
-data = {'albedo': Albedo(), 'countries': [Country(c, data_instance.get_data(c))
-                                          for c in data_instance.get_country_names()]}
-earth = Earth(data)
+try:
+    logging.log_event('Starting the setup', 'main')
 
-variable_names = {
-    'earth': list(earth.__dict__.keys()),
-                  }
+    data_instance = Data(BASEPATH, logging)
 
-mapping = Mapping(BASEPATH, variable_names)
+    data = {'time': Time(), 'albedo': Albedo(), 'countries': [Country(c, data_instance.get_data(c))
+                                                              for c in data_instance.get_country_names()]}
+    earth = Earth(data)
+
+    variable_names = {
+        'earth': list(earth.__dict__.keys()),
+    }
+
+    mapping = Mapping(BASEPATH, logging, variable_names)
+
+except Exception as E:
+    logging.log_error(E, 'main')
 
 
 def handler():
-    for i in range(1):
-        mapping.values[i] = get_values()
+    for i in range(10):
+        mapping.values[i] = vars(earth)
     mapping.save_csv()
-
-
-def get_values():
-    values = {}
-    for model in variable_names:
-        values[model] = [eval(f'{ model }.{ variable_name }') for variable_name in variable_names[model]]
-    return values
 
 
 def main():
