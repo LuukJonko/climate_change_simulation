@@ -13,41 +13,44 @@ from sys import exit
 
 BASEPATH = Path(__file__).parent.absolute()
 
-try:
+
+def setup():
     logging = Logging(BASEPATH)
-except ImportError:
-    exit("Could not import correctly")
 
-try:
-    logging.log_event('Starting the setup', 'main')
+    try:
+        logging.log_event('Starting the setup', 'main')
 
-    data_instance = Data(BASEPATH, logging)
+        data_instance = Data(BASEPATH, logging)
 
-    data = {'time': Time(),
-            'albedo': Albedo(BASEPATH),
-            'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()]
-            }
+        data = {'time': Time(),
+                'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()]
+                'coordinates': [[]] # Hier nog even naar kijken!!!
+                }
 
-    earth = Earth(data)
+        earth = Earth(data)
 
-    variable_names = {
-        'earth': list(earth.__dict__.keys()),
-    }
+        variable_names = {
+            'earth': list(earth.__dict__.keys()),
+        }
 
-    mapping = Mapping(BASEPATH, logging, variable_names)
+        mapping = Mapping(BASEPATH, logging, variable_names)
 
-except Exception as E:
-    logging.log_error(E, 'main')
+        return earth, data['time'], mapping
+
+    except Exception as E:
+        logging.log_error(E, 'main')
 
 
-def handler():
-    for i in range(10):
-        mapping.values[i] = vars(earth)
+def handler(length, earth, time, mapping):
+    for t in range(length):
+        time.proceed()
+        mapping.values[t] = vars(earth)
     mapping.save_csv()
 
 
 def main():
-    handler()
+    earth, time, mapping = setup()
+    handler(10, earth, time, mapping)
 
 
 if __name__ == '__main__':

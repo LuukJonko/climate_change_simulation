@@ -1,7 +1,11 @@
 class Time:
     def __init__(self):
         self._time = 0
+
         self._observers = []
+
+    def proceed(self):
+        self._time += 1
 
     @property
     def time(self):
