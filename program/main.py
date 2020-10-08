@@ -23,8 +23,11 @@ try:
 
     data_instance = Data(BASEPATH, logging)
 
-    data = {'time': Time(), 'albedo': Albedo(), 'countries': [Country(c, data_instance.get_data(c))
-                                                              for c in data_instance.get_country_names()]}
+    data = {'time': Time(),
+            'albedo': Albedo(BASEPATH),
+            'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()]
+            }
+
     earth = Earth(data)
 
     variable_names = {

@@ -3,6 +3,7 @@ import sys
 import os
 from json import load
 
+from PIL import Image
 from imutils import paths
 
 
@@ -10,6 +11,7 @@ class Data:
     def __init__(self, BASEPATH, logging):
         self.BASEPATH = BASEPATH
         self.logging = logging
+        self.climate_map_path = os.path.join(BASEPATH, "data/country/")
 
     def get_data(self, name):
         data = {

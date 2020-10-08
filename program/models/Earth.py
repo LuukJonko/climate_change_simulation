@@ -7,6 +7,7 @@ class Earth(object):
         self.time = self.data['time']
         self.albedo = self.data['albedo']
         self.countries = self.data['countries']
+        self.coordinates = self.data['coordinates']
         self.time.bind_to(self.update)
         self.radius = 6371000  # In metres
         self.surface = pi * self.radius**2
