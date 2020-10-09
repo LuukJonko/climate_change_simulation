@@ -23,8 +23,9 @@ def setup():
         data_instance = Data(BASEPATH, logging)
 
         data = {'time': Time(),
-                'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()]
-                'coordinates': [[]] # Hier nog even naar kijken!!!
+                'albedo': Albedo(BASEPATH),
+                'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
+                'coordinates': [[]]  # Hier nog even naar kijken!
                 }
 
         earth = Earth(data)
@@ -39,6 +40,7 @@ def setup():
 
     except Exception as E:
         logging.log_error(E, 'main')
+        exit(1)
 
 
 def handler(length, earth, time, mapping):

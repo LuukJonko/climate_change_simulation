@@ -29,13 +29,23 @@ def convert_rgba_to_rgb(rgba):
 
 color_with_climate = {
     (255, 255, 255): 'Ocean',
+    (25, 25, 25): 'border',
+    (0, 0, 0): 'border',
     (0, 125, 125): 'dfc',
+    (0, 120, 255): 'am',
+    (102, 102, 102): 'ef',
+    (178, 178, 178): 'et',
+    (150, 50, 150): 'dsc',
+    (161, 161, 161): 'et',
+    (142, 142, 142): 'et',
 }
 
 
 for x in range(num_coords[0]):
     for y in range(num_coords[1]):
-        climate_list[x][y] = convert_rgba_to_rgb(color := px[x * x_interval, y * y_interval])
+        climate = color_with_climate[convert_rgba_to_rgb(color := px[x * x_interval, y * y_interval])]
+        climate_list[x][y] = climate if climate != 'border' else climate_list[x][y - 1] if y != 0 \
+            else climate_list[x - 1][num_coords[1]]
         sys.stdout.write(f"\r({x}, {y}) is done, got color { color }")
         sys.stdout.flush()
 
@@ -50,7 +60,7 @@ px = img.load()
 for x_index, x in enumerate(itemlist):
     for y_index, y in enumerate(x):
         img.putpixel((x_index, y_index), tuple(y))
-        print((x_index, y_index), ' ', tuple(y))
+        print((x_index, y_index), ' ', tuple(y) if tuple(y) != (255, 255, 255) else "")
 
 img.show()
 
