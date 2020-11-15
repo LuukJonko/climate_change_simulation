@@ -23,4 +23,4 @@ class Earth(object):
                     5.670373 * 10 ** -8 * self.globe)) ** 0.25 - 273.15  # Temperature in Celsius
 
     def get_average(self, var):
-        return sum(var) / len(self.coordinates)
+        return sum(var) / len(self.coordinates) 

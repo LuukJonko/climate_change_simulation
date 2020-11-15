@@ -1,6 +1,7 @@
 from program.models.Earth import Earth
 from program.models.Albedo import Albedo
 from program.models.Country import Country
+from program.models.Coordinates import Coordinates
 from program.models.Time import Time
 from program.data.data import Data
 
@@ -14,7 +15,15 @@ from sys import exit
 BASEPATH = Path(__file__).parent.absolute()
 
 
-def setup():
+def create_list_coordinates(interval):
+    x_interval, y_interval = 360 / interval, 180 / interval
+    coordinates_list = [[] * y_interval] * x_interval
+    for x, x_value in enumerate(coordinates_list):
+        for y, _ in enumerate(x_value):
+            coordinates_list[x][y] = Coordinates((), 0, 0)
+
+
+def setup(coordinates_interval):
     logging = Logging(BASEPATH)
 
     try:
@@ -25,7 +34,7 @@ def setup():
         data = {'time': Time(),
                 'albedo': Albedo(BASEPATH),
                 'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
-                'coordinates': [[]]  # Hier nog even naar kijken!
+                'coordinates': create_list_coordinates(coordinates_interval)
                 }
 
         earth = Earth(data)
@@ -51,7 +60,7 @@ def handler(length, earth, time, mapping):
 
 
 def main():
-    earth, time, mapping = setup()
+    earth, time, mapping = setup(10)
     handler(10, earth, time, mapping)
 
 

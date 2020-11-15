@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/data/climate/climate.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/data/climate/single_use.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/data/climate/single_use.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Coordinates.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Coordinates.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/models/Earth.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Earth.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

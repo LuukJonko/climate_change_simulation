@@ -11,4 +11,4 @@ class Coordinates(object):
 
     def get_country_with_coordinates(self):
         async with Nominatim(user_agent='climate_change_simulator') as geolocator:
-            return geolocator.geocode(f'{ 180 - self.coordinates[0] }, { 90 - self.coordinates[1] }')
+            return geolocator.geocode(f'{ 180 - self.coordinates[0] }, { 90 - self.coordinates[1] }').country()
