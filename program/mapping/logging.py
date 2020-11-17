@@ -1,6 +1,10 @@
 import sys
 from os.path import join
-from time import time
+from datetime import datetime
+
+def time():
+	now = datetime.now()
+	return now.strftime("%H:%M:%S")
 
 
 class Logging:

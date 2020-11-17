@@ -16,18 +16,21 @@ BASEPATH = Path(__file__).parent.absolute()
 
 
 def create_list_coordinates(interval):
-    x_interval, y_interval = 360 / interval, 180 / interval
-    coordinates_list = [[] * y_interval] * x_interval
-    for x, x_value in enumerate(coordinates_list):
-        for y, _ in enumerate(x_value):
-            coordinates_list[x][y] = Coordinates((), 0, 0)
+    x_interval, y_interval = int(360 / interval), int(180 / interval)  # Get the exact amount of x and y coordinates in the list
+    coordinates_list = [[None] * y_interval] * x_interval  # Create a 2d list with Nonetypes in the shape of the coordinate list
+    for x, x_value in enumerate(coordinates_list):  # x is the position and x_value is the list containing the y values
+        for y, _ in enumerate(x_value):  # Loop over the y values for every x
+            coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)  # Change the value 
+                                                                                          # to a instance of the coordinate class
+    return coordinates_list
+
 
 
 def setup(coordinates_interval):
-    logging = Logging(BASEPATH)
+    logging = Logging(BASEPATH)  # Create an instance of the logging
 
     try:
-        logging.log_event('Starting the setup', 'main')
+        logging.log_event('Starting the setup', 'main')  # Log the start up to the loggin file
 
         data_instance = Data(BASEPATH, logging)
 

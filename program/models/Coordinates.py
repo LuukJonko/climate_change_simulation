@@ -2,11 +2,11 @@ from geopy.geocoders import Nominatim
 
 
 class Coordinates(object):
-    def __init__(self, coordinates, ghg, albedo):
+    def __init__(self, coordinates):
         self.coordinates = coordinates
         self.temperature = 0
-        self.ghg = ghg
-        self.albedo = albedo
+        self.ghg = 0
+        self.albedo = 0
         self.country = self.get_country_with_coordinates()
 
     def get_country_with_coordinates(self):
