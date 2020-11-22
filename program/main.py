@@ -20,9 +20,12 @@ def create_list_coordinates(interval):
     coordinates_list = [[None] * y_interval] * x_interval  # Create a 2d list with Nonetypes in the shape of the coordinate list
     for x, x_value in enumerate(coordinates_list):  # x is the position and x_value is the list containing the y values
         for y, _ in enumerate(x_value):  # Loop over the y values for every x
-            coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)  # Change the value 
-    return coordinates_list                                                               # to a instance of the coordinate class
-
+            print('g')
+            #coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)  # Change the value
+            print('got here')
+            Logging.loop_print(f'Creating coordinate ({ x }, { y }) { y + x * len(x) } out of { len(x) * len(coordinates_list)}')    # to a instance of the coordinate class
+            print('now also got here')
+    return coordinates_list                                                              
 
 
 def setup(coordinates_interval):

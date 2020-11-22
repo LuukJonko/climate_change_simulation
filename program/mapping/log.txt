@@ -1,1 +1,1 @@
-[1597760762.0537722] main: Starting the setup
+[16:15:27] main: Starting the setup[ERROR] [16:15:28] main: object of type 'int' has no len()
