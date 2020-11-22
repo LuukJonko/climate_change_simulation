@@ -1,4 +1,4 @@
-from program.models.Earth import Earth
+from program.models.World import World
 from program.models.Albedo import Albedo
 from program.models.Country import Country
 from program.models.Coordinates import Coordinates
@@ -21,8 +21,7 @@ def create_list_coordinates(interval):
     for x, x_value in enumerate(coordinates_list):  # x is the position and x_value is the list containing the y values
         for y, _ in enumerate(x_value):  # Loop over the y values for every x
             coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)  # Change the value 
-                                                                                          # to a instance of the coordinate class
-    return coordinates_list
+    return coordinates_list                                                               # to a instance of the coordinate class
 
 
 
@@ -34,13 +33,14 @@ def setup(coordinates_interval):
 
         data_instance = Data(BASEPATH, logging)
 
-        data = {'time': Time(),
+        data = {  # Pack all the data in a dictionary for easy transfering
+                'time': Time(),
                 'albedo': Albedo(BASEPATH),
                 'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
                 'coordinates': create_list_coordinates(coordinates_interval)
-                }
+        }
 
-        earth = Earth(data)
+        earth = World(data, {'radius': 6371000, 'wattPerSquareMetre': 1368})  
 
         variable_names = {
             'earth': list(earth.__dict__.keys()),

@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET">
-      <change afterPath="$PROJECT_DIR$/program/save.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/mapping/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/mapping/logging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Albedo.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Albedo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Coordinates.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Coordinates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Earth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Time.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Time.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
