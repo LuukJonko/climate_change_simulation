@@ -10,13 +10,13 @@ class Coordinates(object):
         self.angle = cos(coordinates[1])
         self.area = area  # (height, width)
         self.altitude = self.get_altitude_with_coordinates()
-        self.temperature = data['temperature']
+        self.temperature = None
         self.ghg = data['ghg']
         self.albedo = data['albedo']
         self.country = self.get_country_with_coordinates()
-        self.solar_constant = 1337  # Watt per square meter
+        self.solar_constant = 1_361_000  # Watt per square meter in vacuum
 
-        self.EnergyIn = self.solar_constant * cos(radians(coordinates[1])) * area[0] * area[1]
+        self.EnergyIn = self.solar_constant * cos(radians(coordinates[1] + self.angle)) * area[0] * area[1]
         self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area)) ** 0.25 - 273.15
 
     async def get_country_with_coordinates(self):

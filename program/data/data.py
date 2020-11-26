@@ -33,6 +33,7 @@ class Data:
         for index, file in enumerate(files := list(paths.list_files(os.path.join(self.BASEPATH, 'data/country/csv')))):
             sys.stdout.write(f"\rLoading in csv file { index + 1 } out of { len(files) }")
             sys.stdout.flush()
+            sys.stdout.write("\n")
             # Make a list of all the paths in the csv directory
             with open(file, 'r') as csv_file:  # Open the files
                 contents = list(csv.reader(csv_file))  # Read the contents and make a 3d list out of it

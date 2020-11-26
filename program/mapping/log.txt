@@ -1,1 +1,1 @@
-[16:15:27] main: Starting the setup[ERROR] [16:15:28] main: object of type 'int' has no len()
+[19:46:39] main: Starting the setup[ERROR] [19:47:55] main: Expecting value: line 1 column 1 (char 0)

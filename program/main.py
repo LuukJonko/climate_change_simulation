@@ -1,5 +1,6 @@
 from program.models.World import World
 from program.models.Albedo import Albedo
+from program.models.GHG import GHG
 from program.models.Country import Country
 from program.models.Coordinates import Coordinates
 from program.models.Time import Time
@@ -10,22 +11,25 @@ from program.mapping.logging import Logging
 
 from pathlib import Path
 
-from sys import exit
+from sys import stdout, exit
 
 BASEPATH = Path(__file__).parent.absolute()
 
 
-def create_list_coordinates(interval):
-    x_interval, y_interval = int(360 / interval), int(180 / interval)  # Get the exact amount of x and y coordinates in the list
-    coordinates_list = [[None] * y_interval] * x_interval  # Create a 2d list with Nonetypes in the shape of the coordinate list
+def create_list_coordinates(interval, instances):
+    x_interval, y_interval = int(360 / interval), int(
+        180 / interval)  # Get the exact amount of x and y coordinates in the list
+    coordinates_list = [[None] * y_interval] * x_interval  # Create a 2d list with Nonetypes in the shape of the
+    # coordinate list
     for x, x_value in enumerate(coordinates_list):  # x is the position and x_value is the list containing the y values
         for y, _ in enumerate(x_value):  # Loop over the y values for every x
-            print('g')
-            #coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)  # Change the value
-            print('got here')
-            Logging.loop_print(f'Creating coordinate ({ x }, { y }) { y + x * len(x) } out of { len(x) * len(coordinates_list)}')    # to a instance of the coordinate class
-            print('now also got here')
-    return coordinates_list                                                              
+            coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval),
+                                                 (1731000 / 36, 1731000 / 18), instances)
+            # Change the value to a instance of the coordinate class
+            stdout.write(f"\rCreated coordinate ({x},{y}). { y + x * len(x_value) }")
+            stdout.flush()
+            stdout.write("\n")
+    return coordinates_list
 
 
 def setup(coordinates_interval):
@@ -36,14 +40,17 @@ def setup(coordinates_interval):
 
         data_instance = Data(BASEPATH, logging)
 
-        data = {  # Pack all the data in a dictionary for easy transfering
-                'time': Time(),
-                'albedo': Albedo(BASEPATH),
-                'countries': [Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
-                'coordinates': create_list_coordinates(coordinates_interval)
-        }
+        wsd = {'radius': 6371000, 'wattPerSquareMetre': 1368}
 
-        earth = World(data, {'radius': 6371000, 'wattPerSquareMetre': 1368})  
+        data = dict(time=Time(), albedo=Albedo(BASEPATH),
+                    countries=[Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
+                    coordinates=create_list_coordinates(coordinates_interval, {
+                        'albedo': Albedo,
+                        'ghg': GHG,
+
+                                                                               }))
+
+        earth = World(data, wsd)
 
         variable_names = {
             'earth': list(earth.__dict__.keys()),
