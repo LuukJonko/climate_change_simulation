@@ -19,7 +19,6 @@ class Time:
         for index, option in enumerate(options): 
             date_list[index], remaining = self.divRem(remaining, options[option])
         #date_list = date_list[list(options.keys()).index(self.time_interval):] = None
-        print(date_list)
         self.date = date_list
 
     @staticmethod

@@ -3,7 +3,8 @@ class Albedo(object):
         self.BASEPATH = BASEPATH
 
         self._no_sky_albedo = 0
-        self._total_sky_albedo = 0
+        self._sky_albedo = 0
+        self.albedo = 0
 
     @staticmethod
     def get_albedo_level(density, local_climate):

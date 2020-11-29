@@ -1,13 +1,26 @@
-from program.models.World import World
-from program.models.Albedo import Albedo
-from program.models.GHG import GHG
-from program.models.Country import Country
-from program.models.Coordinates import Coordinates
-from program.models.Time import Time
-from program.data.data import Data
+try:
+    from models.World import World
+    from models.Albedo import Albedo
+    from models.GHG import GHG
+    from models.Country import Country
+    from models.Coordinates import Coordinates
+    from models.Time import Time
+    from data.data import Data
 
-from program.mapping.mapping import Mapping
-from program.mapping.logging import Logging
+    from mapping.mapping import Mapping
+    from mapping.logging import Logging
+
+except ModuleNotFoundError:
+    from program.models.World import World
+    from program.models.Albedo import Albedo
+    from program.models.GHG import GHG
+    from program.models.Country import Country
+    from program.models.Coordinates import Coordinates
+    from program.models.Time import Time
+    from program.data.data import Data
+
+    from program.mapping.mapping import Mapping
+    from program.mapping.logging import Logging
 
 from pathlib import Path
 
@@ -35,46 +48,44 @@ def create_list_coordinates(interval, instances):
 def setup(coordinates_interval):
     logging = Logging(BASEPATH)  # Create an instance of the logging
 
-    try:
-        logging.log_event('Starting the setup', 'main')  # Log the start up to the loggin file
 
-        data_instance = Data(BASEPATH, logging)
+    logging.log_event('Starting the setup', 'main')  # Log the start up to the loggin file
 
-        wsd = {'radius': 6371000, 'wattPerSquareMetre': 1368}
+    data_instance = Data(BASEPATH, logging)
 
-        data = dict(time=Time(), albedo=Albedo(BASEPATH),
-                    countries=[Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
-                    coordinates=create_list_coordinates(coordinates_interval, {
-                        'albedo': Albedo,
-                        'ghg': GHG,
+    wsd = {'radius': 6371000, 'wattPerSquareMetre': 1368}
 
-                                                                               }))
+    data = dict(time=Time(), albedo=Albedo(BASEPATH),
+                countries=[Country(c, data_instance.get_data(c)) for c in data_instance.get_country_names()],
+                coordinates=create_list_coordinates(coordinates_interval, {
+                    'albedo': Albedo,
+                    'ghg': GHG,
+                                                                           }))
+    print('got here')
+    earth = World(data, wsd)
 
-        earth = World(data, wsd)
+    variable_names = {
+        'earth': list(earth.__dict__.keys()),
+    }
 
-        variable_names = {
-            'earth': list(earth.__dict__.keys()),
-        }
+    mapping = Mapping(BASEPATH, logging, variable_names)
 
-        mapping = Mapping(BASEPATH, logging, variable_names)
-
-        return earth, data['time'], mapping
-
-    except Exception as E:
-        logging.log_error(E, 'main')
-        exit(1)
+    return earth, data['time'], mapping
 
 
 def handler(length, earth, time, mapping):
     for t in range(length):
         time.proceed()
         mapping.values[t] = vars(earth)
-    mapping.save_csv()
+        print(t)
+    print('hello')
+    #mapping.save_csv()
 
 
 def main():
     earth, time, mapping = setup(10)
     handler(10, earth, time, mapping)
+    return earth
 
 
 if __name__ == '__main__':

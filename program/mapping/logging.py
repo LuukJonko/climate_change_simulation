@@ -2,6 +2,7 @@ import sys
 from os.path import join
 from datetime import datetime
 
+
 class Logging:
     def __init__(self, BASEPATH):
         self.BASEPATH = BASEPATH
