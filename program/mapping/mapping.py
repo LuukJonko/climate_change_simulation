@@ -3,7 +3,7 @@ from os.path import join as path_join
 
 
 class Mapping:
-    def __init__(self, BASEPATH, logging, variable_names, file_save_directory=None):
+    def __init__(self, BASEPATH, variable_names, logging=None, file_save_directory=None):
         self.BASEPATH = BASEPATH  # The absolute path to the parent directory of main.py
         self.logging = logging
 

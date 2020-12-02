@@ -1,14 +1,11 @@
-class Country:
-    def __init__(self, name, data):
+class Country(object):
+    def __init__(self, name, instances, data):
         self.name = name
         self.data = data
-        self.sine_function = {}
-        self.current_ghg_emission = 0
-        self.current_co2_emission = 0
-        self.current_temp = 0
-        self.average_yearly_temp = 0
+        self.csv_data = data['csv']  # {'subject': {'year': 'value', ...}, ...}
+        self.ghg = self.csv_data['GHG_emissions']['2015\nMton CO2eq']
 
-        self.location = data['location']
+        self.location = data['location']  # [long, lat]
         if self.location:
             self.longitude = self.location[0]
             self.latitude = self.location[1]

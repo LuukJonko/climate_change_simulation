@@ -1,10 +1,11 @@
-class Time:
+class Time(object):
     def __init__(self):
         self._time = 0  
 
         self.time_interval = 'days'  # Either days, weeks, months or years
 
-        self.date = []
+        self._date = []
+        self._total = 0
 
         self._observers = []
 
@@ -18,8 +19,9 @@ class Time:
         remaining = self._time * options[self.time_interval]
         for index, option in enumerate(options): 
             date_list[index], remaining = self.divRem(remaining, options[option])
-        #date_list = date_list[list(options.keys()).index(self.time_interval):] = None
-        self.date = date_list
+        # date_list = date_list[list(options.keys()).index(self.time_interval):] = None
+        self._date = date_list
+        self._total = self.divRem(self._total, options['years'])[1]
 
     @staticmethod
     def divRem(number, divider):

@@ -20,6 +20,10 @@ class Data:
             }
         return data
 
+    def get_country_with_location(self):
+        with open(os.path.join(self.BASEPATH, 'data/country/country.json')) as json_file:
+            return load(json_file)
+
     def get_country_names(self):
         names = []
         with open(os.path.join(self.BASEPATH, 'data/country/csv/GHG_emissions.csv'), 'r') as csv_file:
