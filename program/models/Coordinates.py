@@ -31,8 +31,8 @@ class Coordinates(object):
                     for c in instances:
                         if c.name == country[0]:
                             country_list.append(c)
-                            print(f"Added {c.name}. { self.coordinates[0] / self.interval }, { self.coordinates[1] / self.interval }")
-        print(country_list)
+                            print(f"Added {c.name}. { self.coordinates[0] / self.interval }, "
+                                  f"{ self.coordinates[1] / self.interval }")
         self.countries = country_list
         self.ghg = sum([float(country.ghg) for country in self.countries])
 

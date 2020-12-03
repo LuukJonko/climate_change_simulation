@@ -1,1 +1,1 @@
-[14:20:33] main: Starting the setup
+[19:51:05] main: Starting the setup

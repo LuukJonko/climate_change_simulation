@@ -2,8 +2,9 @@ import functools
 import time
 
 
-def Coordinates(coordinates, ghg, albedo):
-    return True
+class Coordinate:
+    def __init__(self, coords):
+        self.coords = coords
 
 
 def timer(func):
@@ -20,14 +21,6 @@ def timer(func):
 
 
 @timer
-def create_list_coordinate(interval):
-    x_interval, y_interval = int(360 / interval), int(180 / interval)
-    coordinates_list = []
-    for x in range(x_interval):
-        new_list = []
-        for y in range(y_interval):
-            new_list.append(Coordinates((x * x_interval, y * y_interval), 0, 0))
-        coordinates_list.append(new_list)
 
 
 
@@ -37,5 +30,9 @@ def create_list_coordinates(interval):
     coordinates_list = [[None] * y_interval] * x_interval
     for x, x_value in enumerate(coordinates_list):
         for y, _ in enumerate(x_value):
-            coordinates_list[x][y] = Coordinates((x * x_interval, y * y_interval), 0, 0)
+            coordinates_list[x][y] = Coordinate((x * x_interval, y * y_interval))
     return coordinates_list
+
+create_list_coordinate(10)
+
+create_list_coordinates(10)

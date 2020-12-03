@@ -46,8 +46,9 @@ class Data:
                 for country in contents:  # Go over all countries in the csv file
                     if country[0].lower() == name.lower():  # Check if it is the right country, otherwise continue
                         amount_with_year = {}  # Create empty dictionary
-                        for index, amount in enumerate(country[1:]):  # Go over all the data for the country with index
-                            amount_with_year[contents[0][index + 1]] = amount  # Link the year to the data
+                        for country_index, amount in enumerate(country[1:]):
+                            # Go over all the data for the country with index
+                            amount_with_year[contents[0][country_index + 1]] = amount  # Link the year to the data
                         data[os.path.splitext(os.path.basename(csv_file.name))[
                             0]] = amount_with_year  # Put it all in the dictionary under the name of the csv file
         return data
@@ -58,3 +59,9 @@ class Data:
                 return load(json_file)[name]
             except KeyError:
                 return None
+
+    def get_climate_with_coordinates(self, coordinates, area):
+        climate_map = Image.open(os.path.join(self.BASEPATH, r'climate/img/climate_map.png'))  # 3927 x 1947 pixels
+        img_array = climate_map.load()
+        x_reach, y_reach = area  # (width, height)
+        for 
