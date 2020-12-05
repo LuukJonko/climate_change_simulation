@@ -1,11 +1,11 @@
 from geopy.geocoders import Nominatim
-from math import cos, radians
+from math import sin, cos, radians
 import requests
 import pandas as pd
 
 
 class Coordinates(object):
-    def __init__(self, coordinates, interval, area, data):
+    def __init__(self, coordinates, interval, area, climate, data):
         self.countries = None
         self.coordinates = coordinates
         self.r_coordinates = (coordinates[0] - 180, coordinates[1] - 90)
@@ -13,14 +13,13 @@ class Coordinates(object):
         self.angle = cos(coordinates[1])
         self.area = area  # (height, width)
         # self.altitude = self.get_altitude_with_coordinates()
-        self.temperature = None
-        self.ghg = data['ghg']
-        self.albedo = data['albedo']
+        self.climate = climate  # 'climate'
+        self.ghg = data['ghg']()
+        self.albedo = data['albedo']()
+        self.gen_albedo = self.albedo.calculate_albedo(self.climate)
         self.get_country_with_coordinates(data['country_names'],  # {'country': [long, lat]}
                                           data['country_instances'])
-        self.solar_constant = 1_361_000  # Watt per square meter in vacuum
-        self.EnergyIn = self.solar_constant * cos(radians(coordinates[1] + self.angle)) * area[0] * area[1]
-        self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
+        self.solar_constant = 1_360  # Watt per square meter in vacuum
 
     def get_country_with_coordinates(self, names, instances):
         country_list = []
@@ -31,8 +30,7 @@ class Coordinates(object):
                     for c in instances:
                         if c.name == country[0]:
                             country_list.append(c)
-                            print(f"Added {c.name}. { self.coordinates[0] / self.interval }, "
-                                  f"{ self.coordinates[1] / self.interval }")
+
         self.countries = country_list
         self.ghg = sum([float(country.ghg) for country in self.countries])
 
@@ -44,7 +42,16 @@ class Coordinates(object):
         # get the elevation out of the json object
 
     def update(self):
-        #self.albedo = self.albedo.calculate_albedo()
+        self.solar_constant = self.solar_constant / (self.ghg**.2 / 5 + 1)
+        self.gen_albedo = self.albedo.calculate_albedo(self.climate)
         self.ghg = sum([float(country.ghg) for country in self.countries])
 
-        self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area)) ** 0.25 - 273.15
+        if self.ghg < 0:
+            print(self.ghg, self.coordinates / self.interval)
+
+        self.EnergyIn = self.solar_constant * abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) \
+                        * self.area[0] * self.area[1] \
+                        * (1 - self.gen_albedo)  # 1100
+        self.ejected_energy = self.EnergyIn / (1 - self.gen_albedo) / (self.ghg**.2 * .9 + 1)
+        self.EnergyIn += self.ejected_energy / (self.ghg**.2 * .7 + 1)
+        self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15

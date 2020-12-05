@@ -1,29 +1,25 @@
 class Albedo(object):
-    def __init__(self, BASEPATH):
-        self.BASEPATH = BASEPATH
+    def __init__(self):
+        self.no_sky_albedo = 0
+        self.sky_albedo = .15
+        self.albedo = self.no_sky_albedo + self.sky_albedo
 
-        self._no_sky_albedo = 0
-        self._sky_albedo = 0
-        self.albedo = 0
-
-    @staticmethod
-    def get_albedo_level(density, local_climate):
+    def calculate_albedo(self, local_climate):
         average_albedo_earth = {
-            'ice': .8 + .15 * density,
-            'snow': .4 + .3 * density,
-            'clouds': .4 + .5 * density,
-            'dirt': .5 + .25 * density,
-            'sand': .3 + .2 * density,
-            'taiga': .15 + .2 * density,
-            'planes': .25 + .5 * density,
-            'forest': .1 + .1 * density,
-            'water': .5 + .17 * density,
+            'o': .07,
+            'e': .7,
+            'b': .3,
+            'a': .15,
+            'c': .15,
+            'd': .5,
         }
 
-        if local_climate in average_albedo_earth.keys():
-            return average_albedo_earth[local_climate]
+        if local_climate[0] in average_albedo_earth.keys():
+            return average_albedo_earth[local_climate[0]] + self.sky_albedo
         else:
-            return None 
+            return 0
 
-    def calculate_albedo(self):
-        return [self.get_albedo_level(coords[1]/90, data['climate']) for coords, data in self.landscape.items()]
+    def update(self, climate):
+        print(climate)
+        self.no_sky_albedo = self.calculate_albedo(climate)
+        print(self.no_sky_albedo)

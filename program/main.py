@@ -30,6 +30,9 @@ from psutil import Process
 
 BASEPATH = Path(__file__).parent.absolute()
 
+logging = Logging(BASEPATH)  # Create an instance of the logging
+data_instance = Data(BASEPATH, logging)
+
 
 def create_list_coordinates(interval, instances):
     x_interval, y_interval = int(360 / interval), int(180 / interval)
@@ -37,27 +40,38 @@ def create_list_coordinates(interval, instances):
     for x in range(x_interval):
         new_list = []
         for y in range(y_interval):
-            new_list.append(Coordinates((x * interval, y * interval), interval,
-                                        (1731000 / 36, 1731000 / 18), instances))
-            stdout.write(f"\rCreated coordinate ({x},{y}). {x_interval * y_interval}")
-            stdout.flush()
+            new_list.append(Coordinates(coords := (x * interval, y * interval), interval, (1731000 / 36, 1731000 / 18),
+                                        data_instance.get_climate_with_coordinates(coords, (interval, interval)),
+                                        instances))
+           # stdout.write(f"\rCreated coordinate ({x},{y}). {x_interval * y_interval}")
+           # stdout.flush()
         coordinates_list.append(new_list)
-    stdout.write('\n')
+    #stdout.write('\n')
     return coordinates_list
 
 
+def save_values(t, world, mapping):
+    coordinates_list = []
+    for x in world.coordinates:
+        new_list = []
+        for y in x:
+            new_list.append([y.temperature, y.albedo.albedo, y.climate])
+        coordinates_list.append(new_list)
+    mapping.values[t] = {
+        'time': world.time.time,
+        'temp': world.temperature,
+        'coordinates': coordinates_list,
+    }
+
+
 def setup(coordinates_interval):
-    logging = Logging(BASEPATH)  # Create an instance of the logging
-
     logging.log_event('Starting the setup', 'main')  # Log the start up to the loggin file
-
-    data_instance = Data(BASEPATH, logging)
 
     wsd = {'radius': 6371000, 'wattPerSquareMetre': 1368}
 
     country_list = [Country(c, GHG, data_instance.get_data(c)) for c in data_instance.get_country_names()]
 
-    data = dict(time=Time(), albedo=Albedo(BASEPATH),
+    data = dict(time=Time(), albedo=Albedo(),
                 countries=country_list,
                 coordinates=create_list_coordinates(coordinates_interval, {
                     'albedo': Albedo,
@@ -72,11 +86,7 @@ def setup(coordinates_interval):
         for c_y in c_x:
             c_y.world_instance = earth
 
-    variable_names = {
-        'earth': list(earth.__dict__.keys()),
-    }
-
-    mapping = Mapping(BASEPATH, variable_names)
+    mapping = Mapping(BASEPATH)
 
     return earth, data['time'], mapping
 
@@ -84,19 +94,20 @@ def setup(coordinates_interval):
 def handler(length, earth, time, mapping):
     for t in range(length):
         time.proceed()
-        mapping.values[t] = vars(earth)
-    # mapping.save_csv()
+        earth.update()
+        save_values(t, earth, mapping)
+    mapping.save_csv()
 
 
 def display_current_memory_usage():
     process = Process(getpid())
-    return process.memory_info().rss
+    return process.memory_info().rss / 1024 / 1024
 
 
 def main():
     earth, time, mapping = setup(10)
     handler(10, earth, time, mapping)
-    return earth
+    return earth, mapping
 
 
 if __name__ == '__main__':
