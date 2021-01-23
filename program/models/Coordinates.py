@@ -43,7 +43,7 @@ class Coordinates(object):
 
     def update(self):
         self.solar_constant = self.solar_constant / (self.ghg**.2 / 5 + 1)
-        self.gen_albedo = self.albedo.calculate_albedo(self.climate)
+        self.albedo.albedo = self.albedo.calculate_albedo(self.climate)
         self.ghg = sum([float(country.ghg) for country in self.countries])
 
         if self.ghg < 0:
@@ -51,7 +51,7 @@ class Coordinates(object):
 
         self.EnergyIn = self.solar_constant * abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) \
                         * self.area[0] * self.area[1] \
-                        * (1 - self.gen_albedo)  # 1100
-        self.ejected_energy = self.EnergyIn / (1 - self.gen_albedo) / (self.ghg**.2 * .9 + 1)
+                        * (1 - self.albedo.albedo)  # 1100
+        self.ejected_energy = self.EnergyIn / (1 - self.albedo.albedo) / (self.ghg**.2 * .9 + 1)
         self.EnergyIn += self.ejected_energy / (self.ghg**.2 * .7 + 1)
         self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15

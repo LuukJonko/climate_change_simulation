@@ -96,7 +96,7 @@ def handler(length, earth, time, mapping):
         time.proceed()
         earth.update()
         save_values(t, earth, mapping)
-    mapping.save_csv()
+    mapping.save()
 
 
 def display_current_memory_usage():
