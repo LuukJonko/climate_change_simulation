@@ -13,7 +13,7 @@ try:
 except ModuleNotFoundError:
     from program.models.World import World
     from program.models.Albedo import Albedo
-    from program.models.GHG import GHG
+    from program.models.Atmosphere import GHG
     from program.models.Country import Country
     from program.models.Coordinates import Coordinates
     from program.models.Time import Time
@@ -85,6 +85,7 @@ def setup(coordinates_interval):
     for c_x in earth.coordinates:
         for c_y in c_x:
             c_y.world_instance = earth
+            c_y.calculate_current_temperature()
 
     mapping = Mapping(BASEPATH)
 

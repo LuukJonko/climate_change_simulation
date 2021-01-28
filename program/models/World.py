@@ -35,9 +35,9 @@ class World(object):
             for y in x:
                 y.update()
                 temp.append(y.temperature)
-                albedo.append(y.gen_albedo)
+                albedo.append(y.albedo.albedo)
                 ghg.append(y.ghg)
         self.temperature = self.get_average(temp)
         self.albedo.albedo = self.get_average(albedo)
-
+        print(self.albedo.albedo)
 

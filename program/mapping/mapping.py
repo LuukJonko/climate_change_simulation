@@ -17,7 +17,8 @@ class Mapping:
             self.file_save_directory = self.BASEPATH
 
     def save(self):
-        self.map_contour_map()
+        #self.map_contour_map()
+        self.save_csv()
 
     def save_csv(self):
         with open(path_join(self.file_save_directory, f'gen_temp.csv'), 'w', newline='') as csv_file:
@@ -25,6 +26,13 @@ class Mapping:
                                 quotechar='|', quoting=QUOTE_MINIMAL)
             for row in self.values.values():
                 csv_writer.writerow([2020 + row['time'], row['temp']])
+
+        with open(path_join(self.file_save_directory, f'row_temp.csv'), 'w', newline='') as csv_file:
+            csv_writer = writer(csv_file, delimiter=' ',
+                                quotechar='|', quoting=QUOTE_MINIMAL)
+            row = list(self.values.values())[0]['coordinates'][18]
+            for y_coordinate, value in enumerate(row):
+                csv_writer.writerow([value[0]])
 
     def save_coordinate_csv(self):
         for model in ['temp', 'albedo']:
@@ -60,4 +68,3 @@ class Mapping:
     @staticmethod
     def get_average(li):
         return sum(li) / len(li)
-

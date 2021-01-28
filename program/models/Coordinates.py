@@ -15,11 +15,13 @@ class Coordinates(object):
         # self.altitude = self.get_altitude_with_coordinates()
         self.climate = climate  # 'climate'
         self.ghg = data['ghg']()
-        self.albedo = data['albedo']()
-        self.gen_albedo = self.albedo.calculate_albedo(self.climate)
+        self.albedo = data['albedo'](self.climate)
+        self.temperature = 0
         self.get_country_with_coordinates(data['country_names'],  # {'country': [long, lat]}
                                           data['country_instances'])
         self.solar_constant = 1_360  # Watt per square meter in vacuum
+
+        self.world_instance = None
 
     def get_country_with_coordinates(self, names, instances):
         country_list = []
@@ -41,17 +43,16 @@ class Coordinates(object):
         return pd.json_normalize(r, 'results')['elevation'].values[0]  # Use pandas to
         # get the elevation out of the json object
 
+    def calculate_current_temperature(self):
+        energy_in = self.solar_constant * abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) \
+                    * self.area[0] * self.area[1] \
+                    * (1 - self.albedo.albedo)  # 1100
+        ejected_energy = energy_in / (1 - self.albedo.albedo) / (self.ghg ** .2 * .9 + 1)
+        energy_in += ejected_energy / (self.ghg ** .2 * .7 + 1)
+        self.temperature = (energy_in / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
+
     def update(self):
-        self.solar_constant = self.solar_constant / (self.ghg**.2 / 5 + 1)
-        self.albedo.albedo = self.albedo.calculate_albedo(self.climate)
+        self.albedo.update(self.temperature)
         self.ghg = sum([float(country.ghg) for country in self.countries])
 
-        if self.ghg < 0:
-            print(self.ghg, self.coordinates / self.interval)
-
-        self.EnergyIn = self.solar_constant * abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) \
-                        * self.area[0] * self.area[1] \
-                        * (1 - self.albedo.albedo)  # 1100
-        self.ejected_energy = self.EnergyIn / (1 - self.albedo.albedo) / (self.ghg**.2 * .9 + 1)
-        self.EnergyIn += self.ejected_energy / (self.ghg**.2 * .7 + 1)
-        self.temperature = (self.EnergyIn / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
+        self.calculate_current_temperature()

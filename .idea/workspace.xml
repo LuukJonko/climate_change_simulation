@@ -20,34 +20,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET">
-      <change afterPath="$PROJECT_DIR$/program/gen_temp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/albedo9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/output/images/temp9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/climate_change_simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/climate_change_simulation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/input/input.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/row_temp.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/data/climate/Cxy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/gen_temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/program/gen_temp.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/mapping/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/program/mapping/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/mapping/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/mapping/mapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Albedo.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Albedo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/models/Coordinates.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Coordinates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/GHG.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Atmosphere.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/World.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo10.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo3.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo4.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo5.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo6.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo7.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo8.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/albedo9.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp1.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp10.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp2.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp3.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp4.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp5.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp6.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp7.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp8.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/output/images/temp9.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\Github\climate_change_simulation\program\input" />
       <recent name="D:\Programming\Github\climate_change_simulation\program" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\data\climate\img" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\data\country\csv" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\models" />
-      <recent name="D:\Programming\Github\climate_change_simulation\program\data\country" />
     </key>
   </component>
   <component name="RunManager" selected="Python.run">
@@ -117,9 +121,6 @@
       <module name="climate_change_simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -315,18 +316,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609191129696" />
-    <state x="725" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601757170525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="725" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1601757170525" />
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1601734339721">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601734339721" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602226831510">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602226831510" />
     <state x="715" y="223" key="#xdebugger.evaluate" timestamp="1606422805705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -335,42 +324,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608931212797" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609200920198">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1611852386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920198" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1609200920198">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1611852386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920198" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1609200920198">
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1611852386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606137320563" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920198" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1609200920198">
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1611852386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920198" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609200920196">
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1611852386191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920196" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1609200920196">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1611852386191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920196" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1609200920196">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1611852386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920196" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1609200920196">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1611852386191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609200920196" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1608602920047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -383,6 +372,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="522" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1606422536622" />
+    <state x="803" y="305" key="refactoring.ChangeSignatureDialog" timestamp="1611847796130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="803" y="305" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611847796130" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
