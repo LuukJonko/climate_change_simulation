@@ -3,7 +3,7 @@ from math import exp
 SNOW_ALBEDO = 0.8
 CLOUD_COVERAGE = 0.4
 
-DROPLET_SIZE = 10 ** -4
+DROPLET_SIZE = 0.00001
 SEA_DIFFERENCE = 5
 
 
@@ -17,23 +17,23 @@ class Albedo(object):
 
         self.average_albedo_earth = {
             'o': .07,
-            'e': .20,
-            'b': .10,
-            'a': .10,
-            'c': .10,
-            'd': .10,
+            'e': .2,
+            'b': .1,
+            'a': .1,
+            'c': .13,
+            'd': .15,
         }
 
         self.local_climate = climate
 
-    def cloud_albedo_generator(self, temp_ground):
-        water_quantity = 54 * 10 ** -3 * exp(0.05 * temp_ground)
+    def cloud_albedo_generator(self, temperature):
+        water_quantity = 54 * 10 ** -3 * exp(0.05 * temperature)
         droplet_size = DROPLET_SIZE if self.local_climate[0] == 'o' else DROPLET_SIZE / SEA_DIFFERENCE
         return water_quantity/(water_quantity + 4.47 * 10 ** 3 * droplet_size)
 
-    def snow_generator(self, temp_ground):
-        self.snow_coverage = 1 if temp_ground <= -40 else 1 - 0.00033 * (temp_ground + 40) ** 2 \
-            if -40 < temp_ground <= 15 else 0
+    def snow_generator(self, temperature):
+        self.snow_coverage = 1 if temperature <= -40 else 1 - 0.00033 * (temperature + 40) ** 2 \
+            if -40 < temperature <= 15 else 0
 
     def calculate_albedo(self):
         if self.local_climate[0] in self.average_albedo_earth.keys():
@@ -41,11 +41,11 @@ class Albedo(object):
         else:
             return 0
 
-    def update(self, temp_ground):
+    def update(self, temperature):
         self.ground_albedo = self.calculate_albedo()
         if self.local_climate[0] != 'o':
-            self.snow_generator(temp_ground)
+            self.snow_generator(temperature)
             self.ground_albedo = (self.snow_coverage * SNOW_ALBEDO + (1 - self.snow_coverage) * self.ground_albedo + self.ground_albedo) / 2
-        self.cloud_albedo = self.cloud_albedo_generator(temp_ground)
-        self.albedo = 1 - ((1 - (CLOUD_COVERAGE * self.cloud_albedo)) * (1 - self.ground_albedo))
-        #self.albedo = 0.4 * self.cloud_albedo + .6 * self.ground_albedo
+        self.cloud_albedo = self.cloud_albedo_generator(temperature)
+        #self.albedo = 1 - ((1 - (CLOUD_COVERAGE * self.cloud_albedo)) * (1 - self.ground_albedo))
+        self.albedo = CLOUD_COVERAGE * self.cloud_albedo + (1 - CLOUD_COVERAGE) * self.ground_albedo

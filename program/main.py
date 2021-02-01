@@ -99,8 +99,9 @@ def setup(coordinates_interval):
     return earth, data['time'], mapping
 
 
-def handler(length, earth, time, mapping):
-    for t in range(length):
+def handler(years, earth, time, mapping):
+    num = (years + 10) * time.options[time.time_interval]
+    for t in range(num):
         time.proceed()
         earth.update()
         save_values(t, earth, mapping)
@@ -109,12 +110,13 @@ def handler(length, earth, time, mapping):
 
 def display_current_memory_usage():
     process = Process(getpid())
-    return process.memory_info().rss / 1024 / 1024
+    return f'{ process.memory_info().rss / 1024 / 1024 } mb'
 
 
 def main():
+    num_of_years = 10
     earth, time, mapping = setup(10)
-    handler(100, earth, time, mapping)
+    handler(num_of_years, earth, time, mapping)
     return earth, mapping
 
 

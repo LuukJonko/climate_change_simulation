@@ -3,7 +3,9 @@ class Time(object):
         self.time = 0
 
         self.current_year = 2010
-        self.time_interval = 'years'  # Either days, weeks, months or years
+        self.time_interval = 'months'  # Either days, weeks, months or years
+
+        self.options = {'years': 1, 'months': 12, 'weeks': 52, 'days': 365}
 
         self.date = []
         self.total_days = 0

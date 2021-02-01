@@ -100,7 +100,7 @@ class Mapping:
                 plt.title(setting['title'])
                 plt.xlabel(setting['xlabel'])
                 plt.ylabel(setting['ylabel'])
-                #plt.axis([START_YEAR, x[-1], min(poly_y) - 1, max(poly_y) + 1])
+                plt.axis([START_YEAR, x[-1], min(poly_y) * .99, max(poly_y) * 1.01])
                 plt.savefig(path_join(self.BASEPATH, f'output/graphs/{ subject }.png'))
                 plt.close(fig)
 

@@ -16,6 +16,7 @@ class Coordinates(object):
         self.climate = climate  # 'climate'
         self.ghg = data['ghg']
         self.albedo = data['albedo'](self.climate)
+        self.temperature = 0
         self.temp_ground = 0
         self.temp_atmosphere = 0
         self.get_country_with_coordinates(data['country_names'],  # {'country': [long, lat]}
@@ -48,7 +49,6 @@ class Coordinates(object):
     def calculate_current_temperature(self):
         power_sun = abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) * \
                     self.area[0] * self.area[1] * self.solar_constant / 2
-        self.power = power_sun
         power_incoming = power_sun + self.power_returned
         power_absorbed = power_incoming * (1 - self.albedo.albedo)
         self.temp_ground = (power_absorbed / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
@@ -60,10 +60,10 @@ class Coordinates(object):
         self.power_returned += power_atmosphere / 3
 
     def equalize(self, average_temp):
-        pass
+        self.temperature = (average_temp - self.temp_ground) * 0.75 + self.temp_ground
 
     def update(self, average_temp):
-        self.albedo.update(self.temp_ground)
+        self.albedo.update(self.temperature)
         self.ghg.ghg = sum([float(country.ghg) for country in self.countries])
 
         self.calculate_current_temperature()
