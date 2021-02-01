@@ -20,37 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59329849-747f-45e2-ac76-6115622286f9" name="Default Changelist" comment="YEET">
-      <change afterPath="$PROJECT_DIR$/program/input/input.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/row_temp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/input/mapping_settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/models/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/absorption.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/co2_in_atmosphere.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/snow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/output/graphs/temp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/data/climate/Cxy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/data/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/data/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/gen_temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/program/gen_temp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/input/input.json" beforeDir="false" afterPath="$PROJECT_DIR$/program/input/input.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/mapping/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/mapping/mapping.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/models/Albedo.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Albedo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Atmosphere.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Atmosphere.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/models/Coordinates.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Coordinates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/models/GHG.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Atmosphere.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Country.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Country.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/models/Time.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/Time.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/program/models/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/models/World.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo10.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo3.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo4.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo5.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo6.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo7.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo8.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/albedo9.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/albedo9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp1.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp10.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp2.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp3.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp4.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp5.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp6.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp7.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp8.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/output/images/temp9.png" beforeDir="false" afterPath="$PROJECT_DIR$/program/output/images/temp9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/row_temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/program/row_temp.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,10 +79,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Github\climate_change_simulation\program\input" />
+      <recent name="D:\Programming\Github\climate_change_simulation\program\mapping" />
       <recent name="D:\Programming\Github\climate_change_simulation\program" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\data\climate\img" />
       <recent name="D:\Programming\Github\climate_change_simulation\program\data\country\csv" />
-      <recent name="D:\Programming\Github\climate_change_simulation\program\models" />
     </key>
   </component>
   <component name="RunManager" selected="Python.run">
@@ -202,17 +192,14 @@
       <module name="climate_change_simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/program/mapping" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/program/models" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program/mapping/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program/models/test.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -229,11 +216,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.single_use" />
         <item itemvalue="Python.save" />
         <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597427241798</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Random cloud generation">
+      <created>1611869684182</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611869684182</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -305,17 +299,18 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="YEET" />
-    <option name="LAST_COMMIT_MESSAGE" value="YEET" />
+    <MESSAGE value="Random cloud generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random cloud generation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="91" key="#Inspections" timestamp="1606058060950">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1606058060950" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609191129696">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612011223282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609191129696" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612011223282" />
     <state x="715" y="223" key="#xdebugger.evaluate" timestamp="1606422805705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -324,42 +319,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608931212797" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1611852386190">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1611852386190">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1611852386190">
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606137320563" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1611852386190">
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606137320564" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1611852386191">
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1612116517036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1611852386191">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1611852386190">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386190" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1611852386191">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1612116517035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611852386191" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612116517035" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1608602920047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -372,13 +367,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="522" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1606422536622" />
-    <state x="803" y="305" key="refactoring.ChangeSignatureDialog" timestamp="1611847796130">
+    <state x="803" y="305" key="refactoring.ChangeSignatureDialog" timestamp="1612050220083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="803" y="305" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611847796130" />
+    <state x="803" y="305" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612050220083" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612131017125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612131017125" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/program/data/data.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

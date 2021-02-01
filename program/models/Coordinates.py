@@ -14,12 +14,14 @@ class Coordinates(object):
         self.area = area  # (height, width)
         # self.altitude = self.get_altitude_with_coordinates()
         self.climate = climate  # 'climate'
-        self.ghg = data['ghg']()
+        self.ghg = data['ghg']
         self.albedo = data['albedo'](self.climate)
-        self.temperature = 0
+        self.temp_ground = 0
+        self.temp_atmosphere = 0
         self.get_country_with_coordinates(data['country_names'],  # {'country': [long, lat]}
                                           data['country_instances'])
         self.solar_constant = 1_360  # Watt per square meter in vacuum
+        self.power_returned = 0
 
         self.world_instance = None
 
@@ -34,7 +36,7 @@ class Coordinates(object):
                             country_list.append(c)
 
         self.countries = country_list
-        self.ghg = sum([float(country.ghg) for country in self.countries])
+        self.ghg.ghg = sum([float(country.ghg) for country in self.countries])
 
     def get_altitude_with_coordinates(self):
         query = ('https://api.open-elevation.com/api/v1/lookup'
@@ -44,15 +46,25 @@ class Coordinates(object):
         # get the elevation out of the json object
 
     def calculate_current_temperature(self):
-        energy_in = self.solar_constant * abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) \
-                    * self.area[0] * self.area[1] \
-                    * (1 - self.albedo.albedo)  # 1100
-        ejected_energy = energy_in / (1 - self.albedo.albedo) / (self.ghg ** .2 * .9 + 1)
-        energy_in += ejected_energy / (self.ghg ** .2 * .7 + 1)
-        self.temperature = (energy_in / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
+        power_sun = abs(sin(radians(self.coordinates[1] + self.world_instance.angle))) * \
+                    self.area[0] * self.area[1] * self.solar_constant / 2
+        self.power = power_sun
+        power_incoming = power_sun + self.power_returned
+        power_absorbed = power_incoming * (1 - self.albedo.albedo)
+        self.temp_ground = (power_absorbed / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
+        power_radiated = power_absorbed
+        self.power_returned = power_radiated * self.albedo.cloud_albedo * .8
+        power_atmosphere = self.ghg.absorption * power_radiated * (1 - self.albedo.cloud_albedo * .8)
+        self.temp_atmosphere = (power_atmosphere / (
+                    5.670373 * 10 ** -8 * self.area[0] * self.area[1] * self.ghg.absorption)) ** 0.25 - 273.15
+        self.power_returned += power_atmosphere / 3
 
-    def update(self):
-        self.albedo.update(self.temperature)
-        self.ghg = sum([float(country.ghg) for country in self.countries])
+    def equalize(self, average_temp):
+        pass
+
+    def update(self, average_temp):
+        self.albedo.update(self.temp_ground)
+        self.ghg.ghg = sum([float(country.ghg) for country in self.countries])
 
         self.calculate_current_temperature()
+        self.equalize(average_temp)

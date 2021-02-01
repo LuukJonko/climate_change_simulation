@@ -2,6 +2,7 @@ import csv
 import sys
 import os
 from json import load
+import numpy as np
 
 from PIL import Image
 from imutils import paths

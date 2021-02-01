@@ -3,7 +3,7 @@ class Country(object):
         self.name = name
         self.data = data
         self.csv_data = data['csv']  # {'subject': {'year': 'value', ...}, ...}
-        self.ghg = self.csv_data['GHG_emissions']['2015\nMton CO2eq']
+        self.ghg = self.csv_data['CO2_emissions']['2018\nMton']
 
         self.location = data['location']  # [long, lat]
         if self.location:

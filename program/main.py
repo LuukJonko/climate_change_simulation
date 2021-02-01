@@ -1,7 +1,7 @@
 try:
     from models.World import World
     from models.Albedo import Albedo
-    from models.GHG import GHG
+    from models.Atmosphere import GHG
     from models.Country import Country
     from models.Coordinates import Coordinates
     from models.Time import Time
@@ -55,11 +55,16 @@ def save_values(t, world, mapping):
     for x in world.coordinates:
         new_list = []
         for y in x:
-            new_list.append([y.temperature, y.albedo.albedo, y.climate])
+            new_list.append([y.temp_ground, y.albedo.albedo, y.climate])
         coordinates_list.append(new_list)
     mapping.values[t] = {
-        'time': world.time.time,
+        'time': world.time.decimal_time,
         'temp': world.temperature,
+        'albedo': world.albedo.albedo,
+        'co2_in_atmosphere': world.ghg.total_ppm,
+        'absorption': world.ghg.absorption,
+        'cloud': world.albedo.cloud_albedo,
+        'snow': world.albedo.snow_coverage,
         'coordinates': coordinates_list,
     }
 
@@ -71,11 +76,13 @@ def setup(coordinates_interval):
 
     country_list = [Country(c, GHG, data_instance.get_data(c)) for c in data_instance.get_country_names()]
 
-    data = dict(time=Time(), albedo=Albedo(),
+    ghg_instance = GHG()
+
+    data = dict(time=Time(), albedo=Albedo(), ghg=ghg_instance,
                 countries=country_list,
                 coordinates=create_list_coordinates(coordinates_interval, {
                     'albedo': Albedo,
-                    'ghg': GHG,
+                    'ghg': ghg_instance,
                     'country_names': data_instance.get_country_with_location(),  # {'country': [long, lat], ...}
                     'country_instances': country_list,
                 }))
@@ -87,7 +94,7 @@ def setup(coordinates_interval):
             c_y.world_instance = earth
             c_y.calculate_current_temperature()
 
-    mapping = Mapping(BASEPATH)
+    mapping = Mapping(BASEPATH, data['time'].time_interval)
 
     return earth, data['time'], mapping
 
@@ -107,7 +114,7 @@ def display_current_memory_usage():
 
 def main():
     earth, time, mapping = setup(10)
-    handler(10, earth, time, mapping)
+    handler(100, earth, time, mapping)
     return earth, mapping
 
 

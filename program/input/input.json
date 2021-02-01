@@ -1,6 +1,7 @@
 {
   "ghg_emissions": {
-    "default": ""
+    "default": "",
+    "option": 2
   },
   "population": {
     "vegetarian": 0.039,

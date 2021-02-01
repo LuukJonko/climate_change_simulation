@@ -2,11 +2,12 @@ class Time(object):
     def __init__(self):
         self.time = 0
 
-        self.current_year = 2020
+        self.current_year = 2010
         self.time_interval = 'years'  # Either days, weeks, months or years
 
         self.date = []
         self.total_days = 0
+        self.decimal_time = 0
 
         self._observers = []
 
@@ -23,6 +24,7 @@ class Time(object):
         # date_list = date_list[list(options.keys()).index(self.time_interval):] = None
         self.date = date_list
         self.total_days = self.divRem(self.time * options[self.time_interval], options['years'])[1]
+        self.decimal_time = self.time * options[self.time_interval] / options['years'] + self.current_year
 
     @staticmethod
     def divRem(number, divider):
