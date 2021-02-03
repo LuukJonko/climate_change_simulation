@@ -1,4 +1,3 @@
-from geopy.geocoders import Nominatim
 from math import sin, cos, radians
 import requests
 import pandas as pd
@@ -16,8 +15,8 @@ class Coordinates(object):
         self.climate = climate  # 'climate'
         self.ghg = data['ghg']
         self.albedo = data['albedo'](self.climate)
-        self.temperature = 0
-        self.temp_ground = 0
+        self.temperature = 13.5
+        self.temp_ground = 13.5
         self.temp_atmosphere = 0
         self.get_country_with_coordinates(data['country_names'],  # {'country': [long, lat]}
                                           data['country_instances'])
@@ -53,11 +52,11 @@ class Coordinates(object):
         power_absorbed = power_incoming * (1 - self.albedo.albedo)
         self.temp_ground = (power_absorbed / (5.670373 * 10 ** -8 * self.area[0] * self.area[1])) ** 0.25 - 273.15
         power_radiated = power_absorbed
-        self.power_returned = power_radiated * self.albedo.cloud_albedo * .8
-        power_atmosphere = self.ghg.absorption * power_radiated * (1 - self.albedo.cloud_albedo * .8)
+        self.power_returned = power_radiated * self.albedo.cloud_albedo
+        power_atmosphere = self.ghg.absorption * power_radiated * (1 - self.albedo.cloud_albedo)
         self.temp_atmosphere = (power_atmosphere / (
                     5.670373 * 10 ** -8 * self.area[0] * self.area[1] * self.ghg.absorption)) ** 0.25 - 273.15
-        self.power_returned += power_atmosphere / 3
+        self.power_returned += power_atmosphere / 2
 
     def equalize(self, average_temp):
         self.temperature = (average_temp - self.temp_ground) * 0.75 + self.temp_ground

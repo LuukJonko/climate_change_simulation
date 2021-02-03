@@ -1,8 +1,8 @@
 class Time(object):
-    def __init__(self):
+    def __init__(self, start_year):
         self.time = 0
 
-        self.current_year = 2010
+        self.start_year = start_year
         self.time_interval = 'months'  # Either days, weeks, months or years
 
         self.options = {'years': 1, 'months': 12, 'weeks': 52, 'days': 365}
@@ -10,8 +10,6 @@ class Time(object):
         self.date = []
         self.total_days = 0
         self.decimal_time = 0
-
-        self._observers = []
 
     def proceed(self):
         self.time += 1
@@ -26,7 +24,7 @@ class Time(object):
         # date_list = date_list[list(options.keys()).index(self.time_interval):] = None
         self.date = date_list
         self.total_days = self.divRem(self.time * options[self.time_interval], options['years'])[1]
-        self.decimal_time = self.time * options[self.time_interval] / options['years'] + self.current_year
+        self.decimal_time = self.time * options[self.time_interval] / options['years'] + self.start_year
 
     @staticmethod
     def divRem(number, divider):

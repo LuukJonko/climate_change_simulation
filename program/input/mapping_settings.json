@@ -1,6 +1,7 @@
 {
   "general_settings": {
-    "dark_theme": true
+    "dark_theme": false,
+    "line_color": "blue"
     },
   "graph_settings": {
     "temp": {
@@ -12,7 +13,13 @@
       "legend_loc": "upper left"
     },
     "albedo": {
-      "title": "Prediction of Albedo of the earth through time",
+      "title": "Prediction of albedo of the earth through time",
+      "xlabel": "Time in years",
+      "ylabel": "Albedo",
+      "trend": false
+    },
+    "ground_albedo": {
+      "title": "Prediction of ground albedo of the earth through time",
       "xlabel": "Time in years",
       "ylabel": "Albedo in percentages",
       "trend": false
@@ -32,13 +39,13 @@
     "cloud": {
       "title": "Prediction of cloud albedo through time",
       "xlabel": "Time in years",
-      "ylabel": "Albedo of the clouds",
+      "ylabel": "Cloud albedo",
       "trend": false
     },
     "snow": {
       "title": "Prediction of snow coverage through time",
       "xlabel": "Time in years",
-      "ylabel": "Percentage of snow coverage",
+      "ylabel": "Snow coverage",
       "trend": false
     }
   }

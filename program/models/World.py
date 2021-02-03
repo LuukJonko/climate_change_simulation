@@ -20,7 +20,8 @@ class World(object):
         self.globe = 4 * pi * self.radius**2
         self.PowerIn = wsd['wattPerSquareMetre'] * self.surface
         self.EnergyIn = self.PowerIn - self.PowerIn * self.albedo.albedo
-        self.temperature = (self.EnergyIn / (4 * 5.670373 * 10 ** -8 * self.globe)) ** 0.25 - 273.15  # Temp in Celsius
+        self.temperature = 13.5  # Temp in Celsius
+        self.ground_temperature = 13.5
 
     @staticmethod
     def get_average(li):

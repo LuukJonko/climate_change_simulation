@@ -24,7 +24,8 @@ except ModuleNotFoundError:
 
 from pathlib import Path
 
-from sys import stdout
+from json import load as json_load
+from os.path import join as path_join
 from os import getpid
 from psutil import Process
 
@@ -61,6 +62,7 @@ def save_values(t, world, mapping):
         'time': world.time.decimal_time,
         'temp': world.temperature,
         'albedo': world.albedo.albedo,
+        'ground_albedo': world.albedo.ground_albedo,
         'co2_in_atmosphere': world.ghg.total_ppm,
         'absorption': world.ghg.absorption,
         'cloud': world.albedo.cloud_albedo,
@@ -70,6 +72,9 @@ def save_values(t, world, mapping):
 
 
 def setup(coordinates_interval):
+    with open(path_join(BASEPATH, 'input/input.json')) as json_file:
+        settings = json_load(json_file)
+
     logging.log_event('Starting the setup', 'main')  # Log the start up to the loggin file
 
     wsd = {'radius': 6371000, 'wattPerSquareMetre': 1368}
@@ -78,7 +83,7 @@ def setup(coordinates_interval):
 
     ghg_instance = GHG()
 
-    data = dict(time=Time(), albedo=Albedo(), ghg=ghg_instance,
+    data = dict(time=Time(settings['start_year']), albedo=Albedo(), ghg=ghg_instance,
                 countries=country_list,
                 coordinates=create_list_coordinates(coordinates_interval, {
                     'albedo': Albedo,
@@ -94,7 +99,7 @@ def setup(coordinates_interval):
             c_y.world_instance = earth
             c_y.calculate_current_temperature()
 
-    mapping = Mapping(BASEPATH, data['time'].time_interval)
+    mapping = Mapping(BASEPATH, settings['start_year'], data['time'].time_interval)
 
     return earth, data['time'], mapping
 
@@ -114,7 +119,7 @@ def display_current_memory_usage():
 
 
 def main():
-    num_of_years = 10
+    num_of_years = 100
     earth, time, mapping = setup(10)
     handler(num_of_years, earth, time, mapping)
     return earth, mapping

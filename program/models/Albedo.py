@@ -3,7 +3,7 @@ from math import exp
 SNOW_ALBEDO = 0.8
 CLOUD_COVERAGE = 0.4
 
-DROPLET_SIZE = 0.00001
+DROPLET_SIZE = 0.000029
 SEA_DIFFERENCE = 5
 
 
@@ -11,17 +11,17 @@ class Albedo(object):
     def __init__(self, climate=None):
         self.albedo = .33
         self.ground_albedo = .12
-        self.cloud_albedo = .26
+        self.cloud_albedo = .54
 
         self.snow_coverage = 0
 
         self.average_albedo_earth = {
             'o': .07,
-            'e': .2,
-            'b': .1,
-            'a': .1,
-            'c': .13,
-            'd': .15,
+            'e': .22,
+            'b': .13,
+            'a': .05,
+            'c': .09,
+            'd': .06,
         }
 
         self.local_climate = climate
@@ -46,6 +46,6 @@ class Albedo(object):
         if self.local_climate[0] != 'o':
             self.snow_generator(temperature)
             self.ground_albedo = (self.snow_coverage * SNOW_ALBEDO + (1 - self.snow_coverage) * self.ground_albedo + self.ground_albedo) / 2
-        self.cloud_albedo = self.cloud_albedo_generator(temperature)
-        #self.albedo = 1 - ((1 - (CLOUD_COVERAGE * self.cloud_albedo)) * (1 - self.ground_albedo))
-        self.albedo = CLOUD_COVERAGE * self.cloud_albedo + (1 - CLOUD_COVERAGE) * self.ground_albedo
+        self.cloud_albedo = self.cloud_albedo_generator(temperature) * CLOUD_COVERAGE
+        self.albedo = 1 - ((1 - self.cloud_albedo) * (1 - self.ground_albedo))
+        #self.albedo = CLOUD_COVERAGE * self.cloud_albedo + (1 - CLOUD_COVERAGE) * self.ground_albedo
